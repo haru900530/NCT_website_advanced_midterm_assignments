@@ -1,0 +1,379 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="BS1.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="zh">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - 我的 ASP.NET  應用程式</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+        #SS{
+            background-color:aquamarine;
+        }
+        h3{
+            color:white;
+            background-color:forestgreen;
+            text-align:center;
+        }
+    </style>
+    <script>
+        var MyImg = new
+            Array("Images/NCT1.JPG", "Images/NCT2.JPG", "Images/NCT3.JPG",
+                "Images/NCT4.JPG", "Images/NCT5.JPG", "Images/NCT6.JPG",
+                "Images/NCT7.JPG", "Images/NCT8.JPG", "Images/NCT9.JPG");
+        var MyMember = new Array("文泰一(Taeil)", "徐煐淏(Johnny)", "李泰容(Taeyong)", "中本悠太(Yuta)",
+            "金道英(Doyoung)", "鄭在玹(Jaehyun)", "金廷祐(Jungwoo)", "李馬克(Mark)", "李楷燦(Haechan)");
+        setInterval("RandomImg()", 3000);
+        function RandomImg() {
+            var k = Math.floor(Math.random() * MyImg.length);            
+            document.getElementById("M").innerHTML =
+                "<h3>" + MyMember[k] + "</h3><br/>" +
+                "<img  style='display:block;margin:auto;' src='" + MyImg[k] + "' width=666 height=1000>";
+        }
+        var i = 0;
+        function ShowImg() {
+            document.getElementById("M").innerHTML =
+                "<h3>" + MyMember[i] + "</h3><br/>" +
+                "<img style='display:block;margin:auto;' src='" + MyImg[i] + "' width=666 height=1000>";
+            
+            i = i + 1;
+            if (i >= MyImg.length) { i = 0; }
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark sticky-top justify-content-center">        
+        <div class="collapse navbar-collapse" id="X">
+            <ul class="navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="https://www.smentertainment.com/">SM Entertainment</a></li>
+                <li class="nav-item active"><a class="nav-link" href="https://smglobalshop.com/">SM Global Shop</a></li>
+                <li class="nav-item active"><a class="nav-link" href="https://www.smtown.com/">SMTOWN</a></li>
+                <li class="nav-item active dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">關於NCT 127</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="https://www.youtube.com/channel/UCk2E0dbAyEJWnrN2bbQOcbg">YouTube</a>
+                        <a class="dropdown-item" href="https://twitter.com/nctsmtown_127">Twitter</a>
+                        <a class="dropdown-item" href="https://www.instagram.com/nct127/">Instagram</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div style="background-color:chartreuse" class="jumbotron text-right">
+        <a data-toggle="tooltip" title="西珍妮私心推薦"><h1>NCT 127</h1><h2>歷年主打曲介紹</h2></a>
+    </div>    
+    <ul id="SS" class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#M">NCT 127成員</a>  
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#A1">2016年</a>            
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#B1">2017年</a>  
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#C1">2018年</a>  
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#D1">2019年</a>  
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#E1">2020年</a>  
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#F1">2021年</a>  
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div id="M" class="tab-pane"></div>        
+        <div id="A1" class="tab-pane">
+            <h3>소방차（Fire Truck；消防車）</h3><br />
+            <button type="button" data-toggle="collapse" data-target="#A2" class="btn btn-sm btn-success p-1 m-1">
+                歌曲介紹
+            </button>
+            <div id="A2" class="collapse">                
+                Hip hop和Trap基礎上混合Moombahton旋律元素的Fusion曲風，<br />
+                具有強勁的bass和有節奏感的打擊樂器。<br />
+                描述了無論哪裡起火都會跑去搶救的消防車一樣，<br />
+                通過音樂讓因酷暑和忙碌的日子而倍感疲憊的所有人的眼睛和耳朵都感到涼爽的給力信息。<br />
+            </div>
+            <button type="button" data-toggle="collapse" data-target="#A22" class="btn btn-sm btn-info p-1 m-1">
+                專輯介紹
+            </button>
+            <div id="A22" class="collapse">
+                發行日:7月10日<br />
+                《NCT #127》是韓國男子組合NCT 127的首張迷你專輯，亦為組合出道之作。<br />
+            </div>            
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/_psXn_VJ_AE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div id="B1" class="tab-pane">
+            <h3>無限的我（무한적아; LIMITLESS）</h3><br />
+            <button type="button" data-toggle="collapse" data-target="#B2" class="btn btn-sm btn-success p-1 m-1">
+                歌曲介紹
+            </button>
+            <div id="B2" class="collapse">
+                具有強烈中毒性的Urban R&B Hip-Hop風歌曲，<br />
+                以NCT關鍵詞「無限開放性，無限擴展性」為基礎，<br />
+                描述NCT未來和抱負的歌詞為歌曲的特點。<br />              
+            </div>
+            <button type="button" data-toggle="collapse" data-target="#B22" class="btn btn-sm btn-info p-1 m-1">
+                專輯介紹
+            </button>
+            <div id="B22" class="collapse">
+                發行日:1月6日<br />
+                《NCT #127 Limitless》為NCT 127的第二張迷你專輯。<br />
+                此次專輯共收錄了6首新歌，成員泰容和Mark參與了其中4首歌曲的製作。<br />
+                NCT 127在原有成員泰容、泰一、悠太、在玹、昀昀、Mark和楷燦的基礎上，
+                新加入了Johnny和道英，由9人組形式回歸。<br />
+            </div>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zmUn7V6uuZM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <br />
+            <h3>Cherry Bomb</h3><br />
+            <button type="button" data-toggle="collapse" data-target="#B3" class="btn btn-sm btn-success p-1 m-1">
+                歌曲介紹
+            </button>
+            <div id="B3" class="collapse">
+                Hardcore Hip-Hop & Urban風歌曲，<br />
+                以成員們極具個性的說唱和嗓音，<br />
+                加上強烈的編舞表演而構成。<br />
+                同時表現出既性感又乾練時尚的氛圍，<br />
+                且帶有強烈的粗獷感，<br />
+                勢必要用NCT 127獨有的音樂色彩魅惑全世界歌迷，<br />
+                抓住大眾的目光。<br />            
+            </div>
+            <button type="button" data-toggle="collapse" data-target="#B32" class="btn btn-sm btn-info p-1 m-1">
+                專輯介紹
+            </button>
+            <div id="B32" class="collapse">
+                發行日:6月14日<br />
+                《NCT #127 Cherry Bomb》為NCT 127的第三張迷你專輯。<br /> 
+                這次專輯由風格各異的共計7首歌曲組成。<br /> 
+                成員Mark和泰容參與其中5首歌的作詞，<br /> 
+                更有Dem Jointz、Deez、The Stereotypes等國內外著名作曲家加盟創作。<br /> 
+                這次專輯的主打歌為〈Cherry Bomb〉，<br /> 
+                其中也收錄了加入舞蹈亮點部分的〈Cherry Bomb〉舞蹈版音源。<br /> 
+                該曲除了由世界級作曲家製作，成員Mark和泰容親自參與Rap創作，<br /> 
+                以及世界級編舞家Tony Testa也加入為歌曲創作超強編舞。<br /> 
+            </div>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/WkuHLzMMTZM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div id="C1" class="tab-pane">
+            <h3>Regular</h3><br />
+            <button type="button" data-toggle="collapse" data-target="#C2" class="btn btn-sm btn-success p-1 m-1">
+                歌曲介紹
+            </button>
+            <div id="C2" class="collapse">
+                以Latin Hip-Hop曲風為體裁呈現每個人都曾幻想過的有錢人夢。<br /> 
+            </div>
+            <button type="button" data-toggle="collapse" data-target="#C22" class="btn btn-sm btn-info p-1 m-1">
+                專輯介紹
+            </button>
+            <div id="C22" class="collapse">
+                發行日:10月12日<br />
+                《NCT #127 Regular-Irregular》是韓國男子組合NCT 127的第一張正規專輯。<br />
+                本張專輯加入新成員廷祐，是以十人之姿發行的首張正規專輯。<br />
+            </div>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Gif0E6jYakM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Simon Says</h3><br />
+            <button type="button" data-toggle="collapse" data-target="#C3" class="btn btn-sm btn-success p-1 m-1">
+                歌曲介紹
+            </button>
+            <div id="C3" class="collapse">
+                融合厚重bass riff與銳利合成器音效的Urban Hip-Hop歌曲，<br /> 
+                以一個口令一個動作的『Simon Says』遊戲來影射現代人迎合他人期待與社會價值觀的面貌，<br /> 
+                歌詞包含恢復失落本質及尋找真實自我的寓意。<br /> 
+            </div>
+            <button type="button" data-toggle="collapse" data-target="#C32" class="btn btn-sm btn-info p-1 m-1">
+                專輯介紹
+            </button>
+            <div id="C32" class="collapse">
+                發行日:11月23日<br />
+                後續專輯《NCT #127 Regulate》加收包含主打歌曲在內的3首新歌，<br />
+                除主打曲外，另外兩首分別是「Welcome to My Playground」，<br />
+                以及首張日文迷你專輯主打歌「Chain」的韓文版本。<br />
+            </div>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/arjy2v7zEI0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div id="D1" class="tab-pane">
+            <h3>Superhuman</h3><br />
+            <button type="button" data-toggle="collapse" data-target="#D2" class="btn btn-sm btn-success p-1 m-1">
+                歌曲介紹
+            </button>
+            <div id="D2" class="collapse">
+                融合多樣EDM曲風要素的Complextro舞曲，<br />
+                歌詞傳遞出「意識到自己的潛力並以正向能量追尋夢想的話，任何人都能成為Superhuman的信息。<br />
+            </div>
+            <button type="button" data-toggle="collapse" data-target="#D22" class="btn btn-sm btn-info p-1 m-1">
+                專輯介紹
+            </button>
+            <div id="D22" class="collapse">
+                發行日:5月24日<br />
+                《NCT #127 WE ARE SUPERHUMAN》為NCT 127的第四張迷你專輯，<br />
+                收錄了包括主打歌《Superhuman》在內等6首歌曲。<br />
+                專輯邀請到製作了Ariana Grande的《7 Rings》、<br />
+                《thank u, next》等作品的世界級製作團隊Social House、<br />
+                知名音樂人Adrian Mckinnon、電音音樂人TAK、<br />
+                作曲家1take和Wilbart 「Vedo」 McCoy III等國內外暢銷金曲製作人共同參與提升專輯完成度，<br />
+                成員Mark更一同參與作詞。<br />
+            </div>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/x95oZNxW5Rc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Highway to Heaven</h3><br />
+            <button type="button" data-toggle="collapse" data-target="#D3" class="btn btn-sm btn-success p-1 m-1">
+                歌曲介紹
+            </button>
+            <div id="D3" class="collapse">
+                發行日:7月19日<br />
+                加入了充滿東方色彩的樂器聲的電子流行舞曲，<br />
+                散發出滿滿NCT 127的清涼氛圍。<br />
+                備有英文版本。<br />
+            </div>
+             <button type="button" data-toggle="collapse" data-target="#D32" class="btn btn-sm btn-info p-1 m-1">
+                收錄曲介紹
+            </button>
+            <div id="D32" class="collapse">
+                《Highway To Heaven》的英文版以單曲形式全球公開<br />
+            </div>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/iFoqGyWhMws" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div id="E1" class="tab-pane">
+            <h3>英雄（Kick It）</h3><br />
+            <button type="button" data-toggle="collapse" data-target="#E2" class="btn btn-sm btn-success p-1 m-1">
+                歌曲介紹
+            </button>
+            <div id="E2" class="collapse">
+                中毒性極強的獨特Vocoder音效、<br /> 
+                充滿活力的貝斯滑弦技巧音和NCT 127充滿能量的嗓音相互融合，<br /> 
+                節奏強烈的嘻哈舞曲。<br /> 
+                通過歌詞巧妙地傳遞出信心十足的信息-克服創傷戰勝陰影。<br /> 
+            </div>
+            <button type="button" data-toggle="collapse" data-target="#E22" class="btn btn-sm btn-info p-1 m-1">
+                專輯介紹
+            </button>
+            <div id="E22" class="collapse">
+                發行日:3月6日<br />
+                NCT 127的第二張正規專輯，<br />
+                共13首蘊含了NCT 127鮮明音樂色彩的歌曲，<br />
+                呼應專輯名稱《Neo Zone》，<br />
+                領人走進充滿NCT 127專屬特色的獨特音樂世界。<br />
+            </div>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/2OvyA2__Eas" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Punch</h3><br />
+            <button type="button" data-toggle="collapse" data-target="#E3" class="btn btn-sm btn-success p-1 m-1">
+                歌曲介紹
+            </button>
+            <div id="E3" class="collapse">
+                表現站上拳擊台的拳擊選手耳邊響起的動感節奏的Urban Soul嘻哈歌曲，<br /> 
+                強烈且獨特的Lead Synth音效令人印象深刻，<br /> 
+                歌詞蘊含了要戰勝獨自戰鬥的孤獨時刻的信息。<br /> 
+            </div>
+            <button type="button" data-toggle="collapse" data-target="#E32" class="btn btn-sm btn-info p-1 m-1">
+                專輯介紹
+            </button>
+            <div id="E32" class="collapse">
+                發行日:5月19日<br />
+                後續專輯《NCT #127 Neo Zone: The Final Round》，<br />
+                包含主打歌《Punch》共追加收錄4首歌曲。<br />
+                兩版專輯皆由熱門金曲製作人劉英振、Kenzie、Hitchhiker、<br />
+                Deez、Dem Jointz、The Underdogs、The Stereotypes、<br />
+                LDN Noise、Andrew Choi、minGtion等韓國國內外實力派製作詞人，<br />
+                及作曲團隊匯聚一堂參與製作，且由成員泰容、Mark以及Johnny參與作詞，<br />
+                提升整體完成度。此外，組合還為13首收錄曲拍攝MV。<br />
+            </div>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/U08OSl3V4po" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div id="F1" class="tab-pane">
+            <h3>Sticker</h3><br />
+            <button type="button" data-toggle="collapse" data-target="#F2" class="btn btn-sm btn-success p-1 m-1">
+                歌曲介紹
+            </button>
+            <div id="F2" class="collapse">
+                以中毒性強的標誌性笛子音效、<br /> 
+                強烈的貝斯以及富有節奏感的演唱相互融合的嘻哈舞曲，<br /> 
+                蘊含了在復雜的世界中與成為重心的愛人永遠地在一起，<br /> 
+                寫下只屬於兩人的歷史。<br /> 
+            </div>
+            <button type="button" data-toggle="collapse" data-target="#F22" class="btn btn-sm btn-info p-1 m-1">
+                專輯介紹
+            </button>
+            <div id="F22" class="collapse">
+                發行日:9月17日<br />
+                《STICKER》為NCT 127的第三張正規專輯，<br />
+                與前作正規二輯《Neo Zone》時隔1年6個月之久再次推出的新專輯。<br />
+                本專輯含主打歌〈Sticker〉在內，總共收錄了曲風多樣的11首歌曲。<br />
+                這次專輯包含了劉英振、Dem Jointz、Harvey Mason Jr.、<br />
+                Simon Petrén、 Andreas Öberg、Cutfather、Hitchhiker等，<br />
+                美國、瑞典、丹麥等全球熱門歌曲製作人的參與，提高了本張專輯的完成度。<br />
+                成員泰容和Mark也參與主打歌〈Sticker〉的Rap製作，增添了魅力。<br />
+            </div>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1oYWnbTSang" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3>Favorite (Vampire)</h3><br />
+            <button type="button" data-toggle="collapse" data-target="#F3" class="btn btn-sm btn-success p-1 m-1">
+                歌曲介紹
+            </button>
+            <div id="F3" class="collapse">
+                具有中毒性強的標誌性口哨聲和豐富的和聲演唱魅力十足的R&B流行舞曲。<br /> 
+                歌曲戲劇性地表現了即使在瀕臨崩潰的悲劇性愛情的盡頭，<br /> 
+                也認為只有對方是自己的全部，能令自己歡喜的存在的信息。<br /> 
+            </div>
+            <button type="button" data-toggle="collapse" data-target="#F32" class="btn btn-sm btn-info p-1 m-1">
+                專輯介紹
+            </button>
+            <div id="F32" class="collapse">
+                發行日:10月25日<br />
+                《後續專輯《Favorite》，包含同名主打歌〈Favorite (Vampire)〉追加了共3首新歌，<br />
+                再加上正規三輯收錄的11首歌曲，共14首歌曲。<br />
+            </div>
+            <br />
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/7uxu4Z2HAnA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="card" style="background-color:mistyrose">銘傳大學資訊管理系張詠晴製作</div>
+    <div class="card" style="background-color:lightgray">SM娛樂版權所有</div>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+
+        </asp:ContentPlaceHolder>            
+    </form>
+</body>
+</html>
